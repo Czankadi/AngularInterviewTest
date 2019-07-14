@@ -1,7 +1,7 @@
 <div class="app-wrapper">
     <app-header class="header"></app-header>
     <div class="content-wrapper">
-        <app-menu class="menu"></app-menu>
+        <app-menu *ngIf="toggle" class="menu"></app-menu>
         <div class="content">
             <router-outlet></router-outlet>
         </div>

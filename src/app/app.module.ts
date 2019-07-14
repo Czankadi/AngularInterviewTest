@@ -18,6 +18,7 @@ import { ButtonModule } from 'primeng/primeng';
 import { FormsModule } from '@angular/forms';
 import {CalendarModule} from 'primeng/calendar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SidebarModule} from 'primeng/sidebar';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 		ButtonModule,
 		FormsModule,
 		CalendarModule,
-		BrowserAnimationsModule
+		BrowserAnimationsModule,
+		SidebarModule
     ],
     providers: [],
     bootstrap: [AppComponent]

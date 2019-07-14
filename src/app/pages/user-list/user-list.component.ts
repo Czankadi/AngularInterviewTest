@@ -18,42 +18,36 @@ export class UserListComponent implements OnInit {
 				private router: Router
 				){ }
 
-    ngOnInit() {
-		
-		
-		
+    ngOnInit() {		
         this.reload();	
-		
-		
     }
 
     reload() {
         
 		if (localStorage.getItem('users')){
-			console.log("volt");
-		this.userService.setUsers(JSON.parse(localStorage.getItem('users')));
-		}
+			this.userService.setUsers(JSON.parse(localStorage.getItem('users')));
+		}	
 		this.userService.getUsers().subscribe(res => this.users = res);
     }
 
 	newBtnClick= function ()  {
-			this.userService.setSelected(-1);
+		this.userService.setSelected(-1);
         this.router.navigateByUrl('/users/:id');
 	};
 	
 	editBtnClick= function ()  {
-		 if (this.selectedId != -1 && this.selectedId) {
-		this.userService.setSelected(this.selectedId);
-        this.router.navigateByUrl('/users/:id');
-		 }
+		if (this.selectedId != -1 && this.selectedId) {
+			this.userService.setSelected(this.selectedId);
+			this.router.navigateByUrl('/users/:id');
+		}
 	};
 	
 	delBtnClick= function ()  {
-        console.log(this.selectedId);
+        
 		 if (this.selectedId != -1 && this.selectedId) {
-        this.users.splice(this.selectedId-1, 1);
-		localStorage.setItem('users', JSON.stringify(this.users));
-		 }
+			this.users.splice(this.selectedId-1, 1);
+			localStorage.setItem('users', JSON.stringify(this.users));
+		}
 	};
 	
 	onRowSelect(event) {
